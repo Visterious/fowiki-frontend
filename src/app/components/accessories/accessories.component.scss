@@ -1,0 +1,108 @@
+#searchForm {
+  width: auto;
+  float: right;
+  margin-right: 30px;
+  input {
+    padding: 0 10px 0 15px;
+    border-radius: 42px;
+    border: 2px solid #362221;
+    background: #FFFFFF;
+    outline: none;
+    position: relative;
+  }
+}
+
+table {
+  color: #e8afa4;
+  text-align: center;
+
+  thead th {
+    vertical-align: middle;
+    padding: 10px;
+    white-space: nowrap;
+  }
+
+  tbody{
+    font-size: 0.75rem;
+
+    tr td {
+      vertical-align: middle;
+
+      img {
+        max-width: 240px;
+        max-height: 240px;
+        width: 100%;
+      }
+    }
+  }
+}
+
+a {
+  color: #e8afa4;
+  background-color: #43302f;
+  border: 1px solid #362221;
+}
+
+a:hover {
+  color: #43302f;
+  background-color: #e8afa4;
+}
+
+#delBtn {
+  background-color: #600b0f;
+  color: #e8afa4;
+  padding: 5px 10px;
+}
+
+#delBtn:hover {
+  background-color: #7a0b10;
+  color: #dea69c;
+}
+
+#editBtn {
+  background-color: #544224;
+  color: #e8afa4;
+  padding: 5px 10px;
+}
+
+#editBtn:hover {
+  background-color: #6e582a;
+  color: #dea69c;
+}
+
+.sortElems {
+  position: relative;
+  display: inline-block;
+  height: 28px;
+  vertical-align: middle;
+}
+
+.sortElems::after {
+  content: '';
+  position: absolute;
+  border: 6px solid transparent;
+}
+
+.sortElems:hover::after {
+  transform: scale(1.15);
+}
+
+.down::after {
+  bottom: 0;
+  right: -16px;
+  border-top: 6px solid #dea69c;
+}
+
+.down:hover::after {
+  border-top: 6px solid #ffc2b5;
+}
+
+.up::after {
+  top: 0;
+  right: -16px;
+  border-bottom: 6px solid #dea69c;
+}
+
+.up:hover::after {
+  border-bottom: 6px solid #ffc2b5;
+}

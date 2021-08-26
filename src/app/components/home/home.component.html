@@ -1,0 +1,10 @@
+<div class="row mt-5">
+  <div *ngFor="let category of categories" class="offset-2 col-8 offset-sm-0 col-sm-4 category" align="center">
+    <div class="in_category">
+      <a href="{{ category.link }}">
+        <img src="{{ category.img }}" alt="{{ category.title }}">
+        <h3>{{ category.title }}</h3>
+      </a>
+    </div>
+  </div>
+</div>

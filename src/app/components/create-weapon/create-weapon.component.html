@@ -1,0 +1,69 @@
+<div class="col-12 offset-sm-2 col-sm-8 offset-lg-3 col-lg-6 mt-4">
+  <h1>Create</h1>
+  <div>
+    <div style="color: #ff5a60">{{ error }}</div>
+  </div>
+  <form [formGroup]="createForm" (ngSubmit)="submit()" encType="multipart/form-data">
+    <div class="form-group">
+      <input class="form-control" formControlName="name" type="text" placeholder="Name"
+             [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+             required>
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required" style="color: #ff5a60">Name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="type" type="text" placeholder="Type"
+             [ngClass]="{ 'is-invalid': submitted && f.type.errors }"
+             required>
+      <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+        <div *ngIf="f.type.errors.required" style="color: #ff5a60">Type is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="damage" type="number" placeholder="Damage"
+             [ngClass]="{ 'is-invalid': submitted && f.damage.errors }"
+             required>
+      <div *ngIf="submitted && f.damage.errors" class="invalid-feedback">
+        <div *ngIf="f.damage.errors.required" style="color: #ff5a60">Damage is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="pumping_level" type="text" placeholder="Pumping level"
+             [ngClass]="{ 'is-invalid': submitted && f.pumping_level.errors }"
+             required>
+      <div *ngIf="submitted && f.pumping_level.errors" class="invalid-feedback">
+        <div *ngIf="f.pumping_level.errors.required" style="color: #ff5a60">Pumping level is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" rows="5" formControlName="description" type="text" placeholder="Description"
+                  [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+                  required></textarea>
+      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+        <div *ngIf="f.description.errors.required" style="color: #ff5a60">Description is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="image" type="file" name="image"
+             [ngClass]="{ 'is-invalid': submitted && f.image.errors }"
+             (change)="onSelectFile($event)"
+             required>
+      <img *ngIf="selected" class="mt-4" [src]="url" height="200">
+      <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+        <div *ngIf="f.image.errors.required" style="color: #ff5a60">Image is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button id="create" [disabled]="loading" class="btn btn-dark"  type="submit">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Create
+      </button>
+      <button id="cancel" [disabled]="loading" [routerLink]="returnUrl" class="btn btn-secondary"  type="submit">
+        Cancel
+      </button>
+    </div>
+  </form>
+  <div id="spacer"></div>
+</div>
+

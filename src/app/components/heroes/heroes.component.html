@@ -1,0 +1,36 @@
+<div class="row">
+  <div class="col-12 table-responsive">
+    <div class="row">
+      <form id="searchForm">
+        <div class="m-2">
+          <input placeholder="Search..." type="search" (input)="search($event)">
+        </div>
+      </form>
+    </div>
+    <table class="table">
+      <thead>
+        <tr><th>Image</th>
+          <th>Name<ng-container [ngTemplateOutlet]="sortElems" [ngTemplateOutletContext]="{property: 'name'}"></ng-container></th>
+          <th>Gender<ng-container [ngTemplateOutlet]="sortElems" [ngTemplateOutletContext]="{property: 'gender'}"></ng-container></th>
+          <th>Weapon<ng-container [ngTemplateOutlet]="sortElems" [ngTemplateOutletContext]="{property: 'weapon'}"></ng-container></th>
+          <th>Class<ng-container [ngTemplateOutlet]="sortElems" [ngTemplateOutletContext]="{property: 'class'}"></ng-container></th>
+          <th>Quality<ng-container [ngTemplateOutlet]="sortElems" [ngTemplateOutletContext]="{property: 'quality'}"></ng-container></th>
+          <th>Fraction<ng-container [ngTemplateOutlet]="sortElems" [ngTemplateOutletContext]="{property: 'fraction'}"></ng-container></th>
+          <th>Description</th><th *ngIf="isAuth"></th><th *ngIf="isAuth"></th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let hero of heroes">
+          <td><img [src]="getImgContent(hero.image)"></td><td>{{ hero.name }}</td><td>{{ hero.gender }}</td><td>{{ hero.weapon }}</td>
+          <td>{{ hero.class }}</td><td>{{ hero.quality }}</td><td>{{ hero.fraction }}</td><td>{{ hero.description }}</td>
+          <td *ngIf="isAuth"><a id="editBtn" class="btn" [routerLink]="['/heroes/update']" [queryParams]="{id : hero.id}">Edit</a></td>
+          <td *ngIf="isAuth"><a id="delBtn" class="btn" (click)="deleteHero(hero.id)">Delete</a></td>
+        </tr>
+      </tbody>
+    </table>
+    <a *ngIf="isAuth" class="btn mb-3" [routerLink]="['/heroes/create']">Create</a>
+  </div>
+</div>
+
+<ng-template #sortElems let-property="property">
+  <span class="sortElems down" (click)="descendingSort(property)"></span><span class="sortElems up" (click)="directSort(property)"></span>
+</ng-template>

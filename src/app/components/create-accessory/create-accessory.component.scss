@@ -1,0 +1,54 @@
+.form-group {
+  margin: 20px;
+
+  button {
+    margin: 10px;
+  }
+}
+
+#create {
+  color: #e8afa4;
+  background-color: #43302f;
+  border: 1px solid #362221;
+}
+
+#create:hover {
+  color: #43302f;
+  background-color: #e8afa4;
+}
+
+#cancel {
+  color: #43302f;
+  background-color: #e8afa4;
+  border: 1px solid #362221;
+}
+
+#cancel:hover {
+  color: #362322;
+  background-color: #d19b92;
+}
+
+.gender {
+  margin: 10px;
+
+  label {
+
+    input {
+      height: 20px;
+      width: 20px;
+      margin-right: 10px;
+    }
+
+    span {
+      vertical-align: top;
+    }
+  }
+}
+
+#spacer {
+  height: 50px;
+}
+
+img {
+  max-width: 100%;
+}

@@ -1,0 +1,84 @@
+<div class="col-12 offset-sm-2 col-sm-8 offset-lg-3 col-lg-6 mt-4">
+  <h1>Create</h1>
+  <div>
+    <div style="color: #ff5a60">{{ error }}</div>
+  </div>
+  <form [formGroup]="createForm" (ngSubmit)="submit()" encType="multipart/form-data">
+    <div class="form-group">
+        <input class="form-control" formControlName="name" type="text" placeholder="Name"
+               [ngClass]="{ 'is-invalid': submitted && f.name.errors }"
+               required>
+      <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+        <div *ngIf="f.name.errors.required" style="color: #ff5a60">Name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="field d-inline gender"><label><input type="radio" formControlName="gender" value="M"><span>Man</span></label></div>
+      <div class="field d-inline gender"><label><input type="radio" formControlName="gender" value="W"><span>Woman</span></label></div>
+      <div class="field d-inline gender"><label><input type="radio" formControlName="gender" value="O"><span>Other</span></label></div>
+      <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+        <div *ngIf="f.gender.errors.required" style="color: #ff5a60">Gender is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="weapon" type="text" placeholder="Weapon"
+             [ngClass]="{ 'is-invalid': submitted && f.weapon.errors }"
+             required>
+      <div *ngIf="submitted && f.weapon.errors" class="invalid-feedback">
+        <div *ngIf="f.weapon.errors.required" style="color: #ff5a60">Weapon is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="class" type="text" placeholder="Class"
+             [ngClass]="{ 'is-invalid': submitted && f.class.errors }"
+             required>
+      <div *ngIf="submitted && f.class.errors" class="invalid-feedback">
+        <div *ngIf="f.class.errors.required" style="color: #ff5a60">Class is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="quality" type="text" placeholder="Quality"
+             [ngClass]="{ 'is-invalid': submitted && f.quality.errors }"
+             required>
+      <div *ngIf="submitted && f.quality.errors" class="invalid-feedback">
+        <div *ngIf="f.quality.errors.required" style="color: #ff5a60">Quality is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="fraction" type="text" placeholder="Fraction"
+             [ngClass]="{ 'is-invalid': submitted && f.fraction.errors }" required>
+      <div *ngIf="submitted && f.fraction.errors" class="invalid-feedback">
+        <div *ngIf="f.fraction.errors.required" style="color: #ff5a60">Fraction is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+        <textarea class="form-control" rows="5" formControlName="description" type="text" placeholder="Description"
+                  [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+                  required></textarea>
+      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+        <div *ngIf="f.description.errors.required" style="color: #ff5a60">Description is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <input class="form-control" formControlName="image" type="file" name="image"
+             [ngClass]="{ 'is-invalid': submitted && f.image.errors }"
+             (change)="onSelectFile($event)"
+             required>
+      <img *ngIf="selected" class="mt-4" [src]="url" height="200">
+      <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+        <div *ngIf="f.image.errors.required" style="color: #ff5a60">Image is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <button id="create" [disabled]="loading" class="btn btn-dark"  type="submit">
+        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+        Create
+      </button>
+      <button id="cancel" [disabled]="loading" [routerLink]="returnUrl" class="btn btn-secondary"  type="submit">
+        Cancel
+      </button>
+    </div>
+  </form>
+  <div id="spacer"></div>
+</div>
+

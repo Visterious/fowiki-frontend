@@ -1,0 +1,29 @@
+.form-group {
+  margin: 20px;
+
+  button {
+    margin: 10px;
+  }
+}
+
+#login {
+  color: #e8afa4;
+  background-color: #43302f;
+  border: 1px solid #362221;
+}
+
+#login:hover {
+  color: #43302f;
+  background-color: #e8afa4;
+}
+
+#cancel {
+  color: #43302f;
+  background-color: #e8afa4;
+  border: 1px solid #362221;
+}
+
+#cancel:hover {
+  color: #362322;
+  background-color: #d19b92;
+}

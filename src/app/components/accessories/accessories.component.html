@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-12 table-responsive">
+    <div class="row">
+      <form id="searchForm">
+        <div class="m-2">
+          <input placeholder="Search..." type="search" (input)="search($event)">
+        </div>
+      </form>
+    </div>
+    <table class="table">
+      <thead>
+      <tr><th>Image</th>
+        <th>Name<ng-container [ngTemplateOutlet]="sortElems" [ngTemplateOutletContext]="{property: 'name'}"></ng-container></th>
+        <th>Description</th><th *ngIf="isAuth"></th><th *ngIf="isAuth"></th></tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let accessory of accessories">
+        <td><img [src]="getImgContent(accessory.image)"></td><td>{{ accessory.name }}</td><td>{{ accessory.description }}</td>
+        <td *ngIf="isAuth"><a id="editBtn" class="btn" [routerLink]="['/accessories/update']" [queryParams]="{id : accessory.id}">Edit</a></td>
+        <td *ngIf="isAuth"><a id="delBtn" class="btn" (click)="deleteHero(accessory.id)">Delete</a></td>
+      </tr>
+      </tbody>
+    </table>
+    <a *ngIf="isAuth" class="btn mb-3" [routerLink]="['/accessories/create']">Create</a>
+  </div>
+</div>
+
+<ng-template #sortElems let-property="property">
+  <span class="sortElems down" (click)="descendingSort(property)"></span><span class="sortElems up" (click)="directSort(property)"></span>
+</ng-template>
